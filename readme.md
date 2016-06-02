@@ -21,10 +21,10 @@ Follow this folder structure:
 |--- channels.json, users.json, etc
 ```
 
-Run the express server
+Install npm packages and run the express server
 ```
-npm i
+npm install
 npm start
 ```
 
-Then navigate to your browser @ http://localhost:8080
+Then navigate to your browser at http://localhost:8080
