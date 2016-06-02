@@ -127,7 +127,7 @@ router.route('/:logDir/:channelName')
         res.json(logs.channels[req.params.channelName].logs);
     });
 
-router.route('/:logDir/__/:userName')
+router.route('/:logDir/all/:userName')
     .get(function(req, res){
         let data = new Logs(req.params.logDir);
         let channelList = data.channelList;
