@@ -121,6 +121,22 @@ router.route('/:logDir')
         });
     });
 
+
+router.route('/:logDir/all')
+    .get(function(req, res){
+        let data = new Logs(req.params.logDir);
+        let channelList = data.channelList;
+        let channels = data.channels;
+
+        var retLogs = [];
+
+        channelList.forEach(function(channel){
+            retLogs = retLogs.concat(channels[channel].logs);
+        });
+
+        res.json(retLogs);
+    });
+
 router.route('/:logDir/:channelName')
     .get(function(req, res) {
         let logs = new Logs(req.params.logDir);
@@ -145,6 +161,8 @@ router.route('/:logDir/all/:userName')
 
         res.json(retLogs);
     });
+
+
 
 router.route('/:logDir/:channelName/:userName')
     .get(function(req, res) {

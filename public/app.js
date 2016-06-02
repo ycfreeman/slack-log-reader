@@ -22,7 +22,9 @@ angular
             if (logNumber > -1) {
                 $http.get(apiRoot + '/' + logNumber).then(function (response) {
                     $scope.channels = ["all"].concat(response.data.channels);
-                    $scope.users = response.data.users;
+                    $scope.users =
+                        angular.merge({ "_": "everyone" }, response.data.users);
+                    $scope.data.user = "everyone";
                 });
             }
         });
@@ -33,10 +35,19 @@ angular
             let user = data.user;
             let channel = data.channel;
             if (user && channel){
-                $http.get(apiRoot + '/' + logNumber + '/' + channel + '/' + user)
+
+                let url = apiRoot + '/' + logNumber + '/' + channel;
+                if (user != "everyone"){
+                    url += '/' + user
+                }
+                $http.get(url)
                     .then(function (response) {
                         console.log(response.data);
-                    $scope.logContents = response.data;
+                    $scope.logContents = response.data
+                        .filter(function(log){
+                            return log.subtype != "channel_join" &&
+                                log.text.length;
+                        });
                 });
             }
         });
