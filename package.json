@@ -1,0 +1,16 @@
+{
+  "name": "slack-log-searcher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm bin && nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "httpdispatcher": "^1.0.0",
+    "nodemon": "^1.9.2"
+  }
+}
