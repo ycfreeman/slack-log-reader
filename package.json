@@ -2,15 +2,17 @@
   "name": "slack-log-searcher",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm bin && nodemon server.js"
+    "dev": "npm bin && nodemon server.js",
+    "start" : "node server.js"
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
   "devDependencies": {
-    "express": "^4.13.4",
     "nodemon": "^1.9.2"
   }
 }
